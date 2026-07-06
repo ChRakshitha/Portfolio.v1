@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rakshitha Cherukuri — Portfolio</title>
+  <meta name="description" content="Portfolio of Rakshitha Cherukuri — Software Engineering undergraduate specializing in backend, full-stack development, GraphQL, and AI-enabled applications." />
+
+  <!-- Fonts: Archivo Black (display) + Space Grotesk (labels/nav) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="deco-circle" aria-hidden="true"></div>
+
+  <div class="poster-frame" aria-hidden="true">
+    <span class="crop-mark crop-tl"></span>
+    <span class="crop-mark crop-tr"></span>
+    <span class="crop-mark crop-bl"></span>
+    <span class="crop-mark crop-br"></span>
+  </div>
+
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light / dark mode">
+    <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1"  x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22"  y1="4.22"  x2="5.64"  y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1"  y1="12" x2="3"  y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22"  y1="19.78" x2="5.64"  y2="18.36"></line>
+      <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"></line>
+    </svg>
+    <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+    </svg>
+  </button>
+
+  <nav class="sidebar-left" aria-label="Main navigation">
+    <div class="sidebar-nav">
+
+      <button class="nav-btn active" data-section="home" title="Home">
+        <span class="nav-index">01</span>
+        <span class="nav-label">Home</span>
+      </button>
+
+      <button class="nav-btn" data-section="about" title="About Me">
+        <span class="nav-index">02</span>
+        <span class="nav-label">About</span>
+      </button>
+
+      <button class="nav-btn" data-section="projects" title="Projects">
+        <span class="nav-index">03</span>
+        <span class="nav-label">Work</span>
+      </button>
+
+      <button class="nav-btn" data-section="contact" title="Contact">
+        <span class="nav-index">04</span>
+        <span class="nav-label">Contact</span>
+      </button>
+
+    </div>
+  </nav>
+
+  <main class="main-content">
+    <section id="home" class="section section-home">
+      <div class="hero">
+        <div class="hero-badges">
+          <span class="section-index"></span>
+          <span class="section-rule"></span>
+          <span class="hero-badge">Open to Work</span>
+        </div>
+        <h1 class="hero-name"  id="hero-name"></h1>
+        <!-- <p  class="hero-role"  id="hero-role"></p> -->
+        <div class="hero-actions">
+          <button class="btn btn-primary"  onclick="window.Portfolio.scrollTo('projects')">See my projects</button>
+          <button class="btn btn-outline"  onclick="window.Portfolio.scrollTo('contact')">Contact Me</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section section-about">
+      <div class="section-eyebrow">
+        <span class="section-index"></span>
+        <span class="section-rule"></span>
+        <span class="section-tag">Profile</span>
+      </div>
+      <h2 class="section-title">About Me</h2>
+
+      <div class="about-lead" id="about-lead"></div>
+      <div class="about-bio"  id="about-bio"></div>
+
+      <div class="card-group">
+        <h3 class="card-group-title">Experience &amp; Credentials</h3>
+        <div id="experience-list"></div>
+        <div id="education-list"></div>
+      </div>
+
+      <!-- <div class="skills-section">
+        <h3 class="card-group-title">Skills</h3>
+        <div class="skills-grid" id="skills-grid"></div>
+      </div> -->
+
+      <!-- <div class="leadership-section">
+        <h3 class="card-group-title">Leadership &amp; Activities</h3>
+        <ul class="leadership-list" id="leadership-list"></ul>
+      </div> -->
+    </section>
+
+    <section id="projects" class="section section-projects">
+      <div class="section-eyebrow">
+        <span class="section-index"></span>
+        <span class="section-rule"></span>
+        <span class="section-tag">Selected Work</span>
+      </div>
+      <h2 class="section-title">Projects</h2>
+      <p  class="section-desc">Things I've built — switching between product thinking and technical implementation.</p>
+
+      <!-- <div class="project-filter" role="group" aria-label="Filter by role">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn"        data-filter="tech">Tech</button>
+        <button class="filter-btn"        data-filter="product">Product</button>
+      </div> -->
+
+      <div class="projects-list" id="projects-list"></div>
+    </section>
+
+    <section id="contact" class="section section-contact">
+      <div class="section-eyebrow">
+        <span class="section-index"></span>
+        <span class="section-rule"></span>
+        <span class="section-tag">Reach Out</span>
+      </div>
+      <h2 class="section-title">Get in Touch</h2>
+      <p  class="section-desc" id="contact-desc"></p>
+
+      <div class="contact-layout">
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="f-name">Name</label>
+            <input type="text"  id="f-name"    placeholder="Your name"      autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email"   placeholder="your@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="f-message">Message</label>
+            <textarea           id="f-message" rows="5" placeholder="What's on your mind?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message →</button>
+          <p class="form-feedback" id="form-feedback"></p>
+        </form>
+
+        <div class="contact-details" id="contact-details"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="poster-footer">
+    <div class="barcode" aria-hidden="true"></div>
+    <span class="poster-footer-text">© 2026 Rakshitha Cherukuri — built with plain HTML &amp; CSS</span>
+    <span class="poster-footer-tag">Portfolio / 2026</span>
+  </footer>
+
+  <!-- <aside class="sidebar-right" aria-label="Profile">
+
+    <div class="profile-card">
+      <div class="profile-avatar"  id="profile-avatar"></div>
+      <div class="profile-name"    id="profile-name"></div>
+      <div class="profile-tagline" id="profile-tagline"></div>
+      <p   class="profile-blurb"   id="profile-blurb"></p>
+      <div class="profile-socials" id="profile-socials"></div>
+    </div>
+
+    <div class="sidebar-work">
+      <div class="work-badge">
+        <span class="work-dot"></span>
+        Open for work
+      </div>
+      <p class="work-desc">Backend development, API design, full-stack projects. Fast, clean, and scalable.</p>
+    </div>
+
+    <div class="sidebar-footer">
+      <p>©2026 Rakshitha C.</p>
+      <p>Built with plain HTML &amp; CSS.</p>
+    </div>
+
+  </aside> -->
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+
+    <button class="mobile-btn active" data-section="home" title="Home">
+      <span class="mobile-index">01</span>
+      <span class="mobile-label">Home</span>
+    </button>
+
+    <button class="mobile-btn" data-section="about" title="About">
+      <span class="mobile-index">02</span>
+      <span class="mobile-label">About</span>
+    </button>
+
+    <button class="mobile-btn" data-section="projects" title="Projects">
+      <span class="mobile-index">03</span>
+      <span class="mobile-label">Work</span>
+    </button>
+
+    <button class="mobile-btn" data-section="contact" title="Contact">
+      <span class="mobile-index">04</span>
+      <span class="mobile-label">Contact</span>
+    </button>
+
+  </nav>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
